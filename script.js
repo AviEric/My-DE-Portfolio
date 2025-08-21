@@ -378,15 +378,32 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         try {
-            // Prepare data for Google Apps Script
+            // Prepare data for Google Apps Script with static message
             const data = new URLSearchParams();
             data.append('name', name);
             data.append('email', email);
             data.append('subject', subject);
             data.append('message', message);
             
+            // Add the static message to the data
+            const staticMessage = `Dear friend,
+
+Thank you for dropping your interest. I would get back to you soon.
+I have your below details as provided by you.
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+Message: ${message}
+
+Regards,
+Abhishek Kumar
+Data Engineer`;
+            
+            data.append('staticMessage', staticMessage);
+            
             // Send to Google Apps Script
-            const response = await fetch('https://script.google.com/macros/s/AKfycbx9LWSmoz3tS-Wapmh0Nne6_VHNYot5N-SKZ95bL2KSHNZ8JbXkYIugLrXUUG9ozJCT/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycby25kLfD2Yi7oA9zOC7JZfVUiQe8hNFzzjb_PLsDZC4eNpl1kpCCzbm20AFC18V8ES9/exec', {
                 method: 'POST',
                 body: data,
                 headers: {
