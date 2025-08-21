@@ -386,7 +386,7 @@ if (contactForm) {
             data.append('message', message);
             
             // Send to Google Apps Script
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzRGrwdGB_odo3iB5daQYNklJ7n8ddnfwR9ZV17NPE-N2YeoKh8UCH8Q2h1BjqyGeTb/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbx9LWSmoz3tS-Wapmh0Nne6_VHNYot5N-SKZ95bL2KSHNZ8JbXkYIugLrXUUG9ozJCT/exec', {
                 method: 'POST',
                 body: data,
                 headers: {
