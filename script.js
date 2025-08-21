@@ -403,7 +403,7 @@ Data Engineer`;
             data.append('staticMessage', staticMessage);
             
             // Send to Google Apps Script
-            const response = await fetch('https://script.google.com/macros/s/AKfycby25kLfD2Yi7oA9zOC7JZfVUiQe8hNFzzjb_PLsDZC4eNpl1kpCCzbm20AFC18V8ES9/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbznGGk0-qPRuU6SuyZvhjMS8GDp7_ZBVjW_-9zFJI_iDIxT5PaFYOdZ4ugAuqSDbbdP/exec', {
                 method: 'POST',
                 body: data,
                 headers: {
