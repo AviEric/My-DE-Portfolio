@@ -71,68 +71,68 @@ document.querySelectorAll('.skill-item').forEach((item, index) => {
 });
 
 // Contact form handling
-const contactForm = document.querySelector('#contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+// const contactForm = document.querySelector('#contact-form');
+// if (contactForm) {
+//     contactForm.addEventListener('submit', function(e) {
+//         e.preventDefault();
         
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
+//         // Get form data
+//         const formData = new FormData(this);
+//         const name = formData.get('name');
+//         const email = formData.get('email');
+//         const subject = formData.get('subject');
+//         const message = formData.get('message');
         
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            showNotification('Please fill in all fields', 'error');
-            return;
-        }
+//         // Simple validation
+//         if (!name || !email || !subject || !message) {
+//             showNotification('Please fill in all fields', 'error');
+//             return;
+//         }
         
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showNotification('Please enter a valid email address', 'error');
-            return;
-        }
+//         // Email validation
+//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//         if (!emailRegex.test(email)) {
+//             showNotification('Please enter a valid email address', 'error');
+//             return;
+//         }
         
-        // Show loading state
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+//         // Show loading state
+//         const submitBtn = this.querySelector('button[type="submit"]');
+//         const originalText = submitBtn.textContent;
+//         submitBtn.textContent = 'Sending...';
+//         submitBtn.disabled = true;
         
-        // Try to submit to Formspree first
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                this.reset();
-            } else {
-                throw new Error('Formspree failed');
-            }
-        })
-        .catch(error => {
-            console.error('Formspree Error:', error);
-            // Fallback to mailto method
-            const mailtoLink = `mailto:aabhishekk247@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`)}`;
-            window.location.href = mailtoLink;
-            showNotification('Email client opened! Please send the email to complete your message.', 'success');
-            this.reset();
-        })
-        .finally(() => {
-            // Reset button state
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
-    });
-}
+//         // Try to submit to Formspree first
+//         fetch(this.action, {
+//             method: 'POST',
+//             body: formData,
+//             headers: {
+//                 'Accept': 'application/json'
+//             }
+//         })
+//         .then(response => {
+//             if (response.ok) {
+//                 showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+//                 this.reset();
+//             } else {
+//                 throw new Error('Formspree failed');
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Formspree Error:', error);
+//             // Fallback to mailto method
+//             const mailtoLink = `mailto:aabhishekk247@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`)}`;
+//             window.location.href = mailtoLink;
+//             showNotification('Email client opened! Please send the email to complete your message.', 'success');
+//             this.reset();
+//         })
+//         .finally(() => {
+//             // Reset button state
+//             submitBtn.textContent = originalText;
+//             submitBtn.disabled = false;
+//         });
+//     });
+// }
 
 // Notification system
 function showNotification(message, type) {
@@ -344,3 +344,71 @@ document.querySelectorAll('.timeline-content').forEach(item => {
 });
 
 console.log('Portfolio website loaded successfully! 🚀'); 
+
+
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        // Simple validation
+        if (!name || !email || !subject || !message) {
+            showNotification('Please fill in all fields', 'error');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            // Prepare data for Google Apps Script
+            const data = new URLSearchParams();
+            data.append('name', name);
+            data.append('email', email);
+            data.append('subject', subject);
+            data.append('message', message);
+            
+            // Send to Google Apps Script
+            const response = await fetch('https://script.google.com/macros/s/AKfycbwawPxxYz0KmUoV89XcGUyT4HWHc8gr0vJ20-Qw2N8RYdW0uOXpqf6vVVYNB5Ofo2n6/exec', {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                this.reset();
+            } else {
+                throw new Error(result.error || 'Failed to send message');
+            }
+        } catch (error) {
+            console.error('Apps Script Error:', error);
+            showNotification('Failed to send message. Please try again later.', 'error');
+        } finally {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
