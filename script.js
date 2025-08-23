@@ -389,12 +389,6 @@ if (contactForm) {
             const staticMessage = `Dear friend,
 
 Thank you for dropping your interest. I would get back to you soon.
-I have your below details as provided by you.
-
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-Message: ${message}
 
 Regards,
 Abhishek Kumar
