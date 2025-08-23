@@ -386,7 +386,7 @@ if (contactForm) {
             data.append('message', message);
             
             // Add the static message to the data
-            const staticMessage = `Dear friend,
+            const staticMessage = `Dear ${name},
 
 Thank you for dropping your interest. I would get back to you soon.
 
