@@ -1,175 +1,195 @@
 # Abhishek Kumar - Data Engineer Portfolio
 
-A beautiful, modern, and responsive portfolio website showcasing Abhishek Kumar's skills, experience, and achievements as an AWS-Certified Data Engineer.
+A modern, responsive portfolio website showcasing Abhishek Kumar's skills, experience, and projects as a Data Engineer.
 
-## 🚀 Features
+## ✨ Features
 
-- **Modern Design**: Clean, professional design with smooth animations
-- **Fully Responsive**: Works perfectly on desktop, tablet, and mobile devices
-- **Interactive Elements**: Hover effects, smooth scrolling, and animated counters
-- **Contact Form**: Functional contact form with validation
-- **Mobile Navigation**: Hamburger menu for mobile devices
-- **Performance Optimized**: Fast loading with optimized CSS and JavaScript
-
-## 📋 Sections
-
-1. **Hero Section**: Eye-catching introduction with call-to-action buttons
-2. **About**: Professional summary with key statistics
-3. **Technical Skills**: Categorized skills with interactive tags
-4. **Experience**: Timeline-based work experience display
-5. **Education**: Academic background and achievements
-6. **Soft Skills**: Personal skills and competencies
-7. **Contact**: Contact information and contact form
-
-## 🛠️ Technologies Used
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Interactive functionality and animations
-- **Font Awesome**: Icons for better visual appeal
-- **Google Fonts**: Inter font family for typography
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🎨 Design Features
-
-- **Color Scheme**: Professional blue and gold theme
-- **Typography**: Clean Inter font family
-- **Animations**: Smooth fade-in and hover effects
-- **Navigation**: Fixed header with smooth scrolling
-- **Cards**: Modern card-based layout
-- **Timeline**: Visual timeline for experience section
+- **Responsive Design** - Works perfectly on all devices
+- **Dark/Light Mode** - Toggle between themes with system preference detection
+- **Interactive Elements** - Smooth animations and hover effects
+- **AI Chat Bot** - Powered by ChatGPT API for intelligent conversations
+- **Scroll to Top** - Smooth navigation back to the top
+- **Contact Form** - Integrated with Google Apps Script
+- **JDoodle AI Animations** - Floating cartoon characters throughout sections
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser
-- Basic knowledge of HTML, CSS, and JavaScript (for customization)
+- Node.js (version 14 or higher)
+- npm or yarn
+- OpenAI API key (for ChatGPT integration)
 
 ### Installation
 
-1. **Clone or Download** the project files
-2. **Open** `index.html` in your web browser
-3. **Customize** the content as needed
+1. **Clone or download the project files**
 
-### File Structure
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up OpenAI API key**
+   
+   Create a `.env` file in the root directory:
+   ```bash
+   # .env file
+   OPENAI_API_KEY=your_actual_openai_api_key_here
+   PORT=3000
+   ```
+   
+   **To get your OpenAI API key:**
+   - Visit [OpenAI Platform](https://platform.openai.com/api-keys)
+   - Sign up or log in
+   - Create a new API key
+   - Copy the key and paste it in your `.env` file
+
+4. **Start the server**
+   ```bash
+   npm start
+   ```
+   
+   For development with auto-reload:
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   - Navigate to `http://localhost:3000`
+   - Your portfolio website is now running with ChatGPT AI integration!
+
+## 🤖 ChatGPT AI Integration
+
+The AI chat bot is now powered by ChatGPT API and includes:
+
+- **Portfolio Context** - AI knows all about Abhishek's skills, experience, and background
+- **Intelligent Responses** - Context-aware conversations about your expertise
+- **Conversation History** - Maintains context across multiple messages
+- **Fallback System** - Local responses if API is unavailable
+- **Typing Indicators** - Professional chat experience
+
+### How it works:
+1. User types a message
+2. Message is sent to your Node.js server
+3. Server forwards request to OpenAI's ChatGPT API
+4. AI responds with context from your portfolio data
+5. Response is displayed in the chat interface
+
+## 📁 Project Structure
+
 ```
 portfolio/
 ├── index.html          # Main HTML file
-├── styles.css          # CSS styles
-├── script.js           # JavaScript functionality
+├── styles.css          # CSS styles and animations
+├── script.js           # Frontend JavaScript functionality
+├── server.js           # Node.js server with ChatGPT API
+├── package.json        # Node.js dependencies
+├── .env               # Environment variables (create this)
 └── README.md          # This file
 ```
 
-## 📝 Customization
+## 🔧 Configuration
 
-### Personal Information
-Edit the following sections in `index.html`:
-- Contact information (phone, email, location)
-- Social media links
-- Professional summary
-- Work experience details
-- Education details
+### Environment Variables
+- `OPENAI_API_KEY` - Your OpenAI API key (required for ChatGPT)
+- `PORT` - Server port (default: 3000)
 
-### Styling
-Modify `styles.css` to:
-- Change color scheme
-- Adjust fonts
-- Modify animations
-- Update layout spacing
+### Customization
+- **Portfolio Data**: Update the `portfolioContext` in `script.js` to modify what the AI knows
+- **AI Behavior**: Adjust `temperature` and `max_tokens` in `server.js` for different response styles
+- **Styling**: Modify `styles.css` to change the appearance
 
-### Functionality
-Edit `script.js` to:
-- Add new animations
-- Modify form handling
-- Update interactive features
+## 🌐 Deployment
 
-## 🎯 Key Features Explained
+### Local Development
+```bash
+npm run dev
+```
 
-### 1. Navigation
-- Fixed header with blur effect
-- Smooth scrolling to sections
-- Mobile hamburger menu
-- Active section highlighting
+### Production
+```bash
+npm start
+```
 
-### 2. Hero Section
-- Gradient background
-- Typing animation effect
-- Call-to-action buttons
-- Profile card with certification badge
+### Hosting Options
+- **Vercel** - Easy deployment with Node.js support
+- **Heroku** - Free tier available
+- **DigitalOcean** - VPS hosting
+- **AWS/GCP** - Cloud hosting solutions
 
-### 3. Skills Section
-- Categorized skill display
-- Interactive skill tags
-- Hover effects and animations
-- Responsive grid layout
-
-### 4. Experience Timeline
-- Visual timeline design
-- Detailed work experience
-- Achievement bullet points
-- Smooth reveal animations
-
-### 5. Contact Form
-- Form validation
-- Success/error notifications
-- Responsive design
-- Professional styling
-
-## 🌟 Performance Optimizations
-
-- **CSS**: Optimized selectors and minimal reflows
-- **JavaScript**: Efficient event handling and animations
-- **Images**: Font Awesome icons instead of image files
-- **Fonts**: Google Fonts with display=swap
-- **Animations**: Hardware-accelerated transforms
-
-## 📊 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## 🔧 Troubleshooting
+## 🛠️ Troubleshooting
 
 ### Common Issues
 
-1. **Fonts not loading**: Check internet connection for Google Fonts
-2. **Icons not showing**: Ensure Font Awesome CDN is accessible
-3. **Animations not working**: Check if JavaScript is enabled
-4. **Mobile menu not working**: Ensure JavaScript file is loaded
+1. **"OpenAI API key not configured"**
+   - Make sure you have a `.env` file with `OPENAI_API_KEY`
+   - Restart the server after adding the key
 
-### Performance Tips
+2. **"Failed to get response from ChatGPT API"**
+   - Check your internet connection
+   - Verify your API key is valid
+   - Check OpenAI service status
 
-1. **Optimize images** if you add any
-2. **Minify CSS/JS** for production
-3. **Use a CDN** for external resources
-4. **Enable compression** on your web server
+3. **Port already in use**
+   - Change the PORT in `.env` file
+   - Or kill the process using the current port
 
-## 📞 Contact Information
+### API Limits
+- OpenAI has rate limits and usage quotas
+- Monitor your usage at [OpenAI Usage Dashboard](https://platform.openai.com/usage)
+- Consider upgrading your plan for higher limits
 
-- **Name**: Abhishek Kumar
-- **Phone**: +91 84203 00729
-- **Email**: aabhishekk247@gmail.com
-- **Location**: Bengaluru, India
+## 📱 Features in Detail
 
-## 📄 License
+### Dark Mode
+- Automatic system preference detection
+- Manual toggle button
+- Smooth transitions between themes
+- Persistent user preference
 
-This project is open source and available under the [MIT License](LICENSE).
+### AI Chat Bot
+- Fixed position at bottom-left
+- Expandable chat interface
+- Professional typing indicators
+- Context-aware responses
+- Mobile responsive design
 
-## 🤝 Contributing
+### Animations
+- Floating emoji characters in each section
+- Smooth scroll animations
+- Hover effects on interactive elements
+- Staggered loading animations
 
-Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
+### Contact Form
+- Google Apps Script integration
+- Form validation
+- Success/error notifications
+- Static message responses
+
+## 🔒 Security Notes
+
+- **Never commit your `.env` file** to version control
+- **Keep your API key private** and secure
+- **Monitor API usage** to prevent unexpected charges
+- **Use environment variables** for all sensitive data
+
+## 📞 Support
+
+If you encounter any issues:
+1. Check the console for error messages
+2. Verify your API key is correct
+3. Ensure all dependencies are installed
+4. Check the troubleshooting section above
+
+## 🎯 Future Enhancements
+
+- [ ] Add more AI models (Claude, Gemini)
+- [ ] Implement chat history persistence
+- [ ] Add file upload capabilities
+- [ ] Multi-language support
+- [ ] Advanced analytics dashboard
 
 ---
 
-**Built with ❤️ for showcasing professional skills and experience**
+**Built with ❤️ by Abhishek Kumar**
 
-*Last updated: December 2024* 
+*Data Engineer | AWS Certified | Cloud Migration Expert* 
